@@ -55,7 +55,7 @@ const onhandleChange = (event) => {
         <div className="mb-3">        
         <textarea value={text} onChange={onhandleChange} style={{backgroundColor: props.mode==='dark'?'grey':'white', color: props.mode==='dark'?'white':'black'}} className="form-control" id="myBox" rows="8"></textarea>
         </div>
-        <button className="btn btn-primary mx-1" onClick={handleUpClick}>Convert to Uppercase</button>
+        <button className={`btn btn-primary mx-1`} onClick={handleUpClick}>Convert to Uppercase</button>
         <button className="btn btn-primary mx-1" onClick={handleLoClick}>Convert to Lowercase</button>
         <button className="btn btn-primary mx-1" onClick={handletitlecase}>Convert to Title Case</button>
         <button className="btn btn-primary mx-1" onClick={handleextraspaces}>Remove Extra Spaces</button>
