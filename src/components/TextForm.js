@@ -5,6 +5,7 @@ const handleUpClick = () => {
     // console.log("handle up clicked");
     let newText = text.toUpperCase();
     setText(newText);
+    props.showAlert("converted to uppercase!", "success");
 }
 const handleextraspaces = () => {
     // console.log("handle up clicked");
@@ -17,12 +18,13 @@ const handleLoClick = () => {
     // console.log("handle up clicked");
     let newText = text.toLowerCase();
     setText(newText);
+    props.showAlert("converted to lowercase!", "success");
 }
 const handleCopyText = () => {
    let txt = document.getElementById('myBox');
     txt.select();
    navigator.clipboard.writeText(txt.value);
-    // setText(newText);
+   props.showAlert("Text Copied!", "success");
 }
 const handletitlecase = () => {
     
@@ -36,24 +38,8 @@ const handletitlecase = () => {
         joined_words += cap + " ";
         }
        });
-        setText(joined_words);
-    
-        
-        const handleAa = ()=>{
-            let words = text.split(" ");
-            let joinedWords = [];
-            let capWord;
-            
-            words.forEach(function (element){
-                if(element[0] != undefined){
-                    capWord = element[0].toUpperCase() + element.slice(1).toLowerCase();
-                    joinedWords += capWord + ' '; 
-                }
-            })
-            setText(joinedWords);
-        }
-    
-   
+        setText(joined_words);   
+        props.showAlert("Converted to title case", "success");
 }
 const onhandleChange = (event) => {
     // console.log("on handle change clicked");
@@ -77,7 +63,8 @@ const onhandleChange = (event) => {
     </div>
     <div className="container"  style={{color: props.mode==='dark'?'white':'black'}}>
         <h3 className='my-3'>Your Text Summary</h3>
-        <p>{text.split(" ").length} words and {text.length} characters</p>
+        {/* <p>{text.split(" ").length} words and {text.length} characters</p> */}
+        <p>{text.length?text.split(" ").length:0} words and {text.length} characters</p>
         <p>{.008 * text.split(' ').length} Minutes to read</p>
         <h2>Preview</h2>
         <p>{text.length>0?text:"Enter text in the box to preview"}</p>
